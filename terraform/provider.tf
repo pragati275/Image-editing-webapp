@@ -14,7 +14,7 @@ terraform {
     region         = "us-east-1"
     dynamodb_table = "images-tfstate-locking"
     encrypt        = true
-    profile = "terraform"
+    profile        = "terraform"
   }
 }
 
