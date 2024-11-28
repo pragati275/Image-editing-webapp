@@ -15,7 +15,7 @@ urlpatterns = [
     path('cc/', views.cc, name='cc'),
     path('crop/', views.crop, name='crop'), 
     path('crop1/', views.crop1, name='crop1'),
-    path('sharpen/', views.sharpen_image),
+    path('sharpen/', views.sharpen_image, name='sharpen'),
     path('captured/', views.captured, name='captured'),
     path('process_image/', views.process_image, name='process_image'),
 ]

@@ -102,7 +102,6 @@ def cc(request):
     photo1 = photo
     if request.method == 'POST':
         rgb = request.POST.get('rgb')
-        rgb = rgb.split(",")
         rgb = [int(i) for i in rgb ]
         rgb.pop()
         n_rgb = request.POST.get('new-color')
