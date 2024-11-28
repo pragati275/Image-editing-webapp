@@ -3,5 +3,11 @@ terraform/.terraform
 terraform/.terraform/*
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
+terraform/.terraform.lock.hcl
 .venv
 .venv/*
+Website1/media
+Website1/media/*
+Website1/Project1/__pycache__
+Website1/Project1/migrations/__pycache__
+Website1/Website1/__pycache__
