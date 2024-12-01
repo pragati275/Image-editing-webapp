@@ -97,12 +97,14 @@ jobs:
      - name: Install dependencies
        if: github.event_name == 'push' || github.event_name == 'pull_request'
        run: |
+         cd Website1
          python -m pip install --upgrade pip
          pip install -r requirements.txt
 
      - name: Run Pytest
        if: github.event_name == 'push' || github.event_name == 'pull_request'
        run: |
+         cd Website1
          pytest
 
      # Docker Build and Push
