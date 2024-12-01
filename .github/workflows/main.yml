@@ -113,6 +113,9 @@ jobs:
      - name: Log in to Amazon ECR
        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
        uses: aws-actions/amazon-ecr-login@v1
+       run: |
+         aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
+
 
      - name: Build Docker Image
        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
