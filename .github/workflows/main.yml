@@ -88,17 +88,17 @@ jobs:
        run: terraform apply -auto-approve -input=false
 
      # Docker Build and Push
-      - name: Log in to Amazon ECR
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: aws-actions/amazon-ecr-login@v1
+     - name: Log in to Amazon ECR
+       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+       uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build Docker Image
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: |
-          docker build -t ${{ secrets.ECR_REPOSITORY_NAME }}:latest .
-          docker tag ${{ secrets.ECR_REPOSITORY_NAME }}:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+     - name: Build Docker Image
+       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+       run: |
+         docker build -t ${{ secrets.ECR_REPOSITORY_NAME }}:latest .
+         docker tag ${{ secrets.ECR_REPOSITORY_NAME }}:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
-      - name: Push Docker Image to ECR
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: |
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+     - name: Push Docker Image to ECR
+       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+       run: |
+         docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/${{ secrets.ECR_REPOSITORY_NAME }}:latest
