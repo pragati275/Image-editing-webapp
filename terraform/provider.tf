@@ -14,11 +14,10 @@ terraform {
     region         = "us-east-1"
     dynamodb_table = "images-tfstate-locking"
     encrypt        = true
-    profile = "terraform"
+    profile        = "terraform"
   }
 }
 
 provider "aws" {
-  region  = "us-east-1" # Specify your AWS region here
-  profile = "terraform" # Optional: Use this if you have a specific profile
+  region = "us-east-1" # Specify your AWS region here
 }
