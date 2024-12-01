@@ -19,13 +19,3 @@ class TestStaticViews:
         response = client.get(reverse('contact'))
         assert response.status_code == 200
         assert 'contact.html' in [t.name for t in response.templates]
-
-    def test_pricing_view(self, client):
-        response = client.get(reverse('pricing'))
-        assert response.status_code == 200
-        assert 'pricing.html' in [t.name for t in response.templates]
-
-    def test_privacy_view(self, client):
-        response = client.get(reverse('privacy'))
-        assert response.status_code == 200
-        assert 'privacy.html' in [t.name for t in response.templates]

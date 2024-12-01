@@ -24,12 +24,6 @@ def about(request):
 def contact(request):
     return render(request,'contact.html')
 
-def pricing(request):
-    return render(request,'pricing.html')
-
-def privacy(request):
-    return render(request,'privacy.html')
-
 @csrf_exempt
 def captured(request):
     return render(request, 'capture.html')
