@@ -129,3 +129,13 @@ jobs:
          cd ..
          cd Website1
          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+
+     # Trigger ECS Service Update
+     - name: Update ECS Service
+       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+       run: |
+         aws ecs update-service \
+           --cluster my-ecs-cluster \
+           --service web-app-service \
+           --force-new-deployment \
+           --region ${{ env.AWS_REGION }}
