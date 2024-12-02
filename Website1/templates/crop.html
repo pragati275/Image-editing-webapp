@@ -17,6 +17,7 @@
           
           <h1>Select the area to be cropped</h1>
           Currently Selected: <input type="text" name="rectan" id="rectan" value="" readonly required> <input type="submit" value="Crop">
+          <input type="hidden" name="bg_image" id="bg_image" value="{{bg_image}}">
         </form><br>
         <canvas id="canvas" height="100" width="100"> </canvas>
       {% endif %}
