@@ -43,7 +43,13 @@
           }
         </script>
       {% elif bg_image %}
-        <a href="{% url 'back' %}">Remove Background</a><br>
+      <form method="POST" action="{% url 'back' %}">
+        {% csrf_token %}
+        <input type="hidden" name="bg_image" value="{{ bg_image }}">
+        <input type="hidden" name="input_image" value="{{ input_image }}">
+        <button type="submit">Remove Background</button>
+    </form>
+    
       {% endif %}
     </center>
     

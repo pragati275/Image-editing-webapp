@@ -15,7 +15,6 @@ urlpatterns = [
     path('crop1/', views.crop1, name='crop1'),
     path('sharpen/', views.sharpen_image, name='sharpen'),
     path('captured/', views.captured, name='captured'),
-    path('process_image/', views.process_image, name='process_image'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
